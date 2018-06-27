@@ -16,13 +16,13 @@ const Signin = props => {
           <label htmlFor="username">
             <small>Email/Username</small>
           </label>
-          <input name="username" type="text" />
+          <input name="username" type="text" required="required" />
         </div>
         <div>
           <label htmlFor="password">
             <small>Password</small>
           </label>
-          <input name="password" type="password" />
+          <input name="password" type="password" required="required" />
         </div>
         <div>
           <button type="submit">{displayName}</button>
