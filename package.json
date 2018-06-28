@@ -1,7 +1,7 @@
 {
   "name": "login",
   "version": "1.0.0",
-  "description": "",
+  "description": "login practice with Fullstack Academy's boilerplate",
   "engines": {
     "node": ">= 7.0.0"
   },
