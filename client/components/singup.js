@@ -10,7 +10,8 @@ const Register = props => {
     const { name, displayName, handleSubmit, error } = props
 
     return (
-        <div>
+        <main>
+            <h2>{displayName}</h2>
             <form onSubmit={handleSubmit} name={name}>
                 <div>
                     <label htmlFor="email">
@@ -35,7 +36,7 @@ const Register = props => {
                 </div>
                 {error && error.response && <div> {error.response.data} </div>}
             </form>
-        </div>
+        </main>
     )
 }
 
