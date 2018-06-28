@@ -9,9 +9,20 @@ import { auth } from '../store'
 class Signin extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { forgotPass: false }
+    this.state = {
+      forgotPass: false,
+      isCapsLockOn: false
+    }
     this.forgotPass = this.forgotPass.bind(this)
     this.cancel = this.cancel.bind(this)
+    this.detectCapsLock = this.detectCapsLock.bind(this);
+  }
+
+  detectCapsLock(e) {
+    if (e.key.toUpperCase() === e.key && e.key.toLowerCase() !== e.key && !e.shiftKey)
+      this.setState({ isCapsLockOn: true })
+    else
+      this.setState({ isCapsLockOn: false })
   }
 
   forgotPass() {
@@ -23,8 +34,6 @@ class Signin extends React.Component {
   }
 
   render() {
-    // const { name, displayName, handleSubmit, error } = props
-    console.log(this.state.forgotPass)
     return (
       <main>
         <h2>{this.props.displayName}</h2>
@@ -40,13 +49,14 @@ class Signin extends React.Component {
               <label htmlFor="password">
                 <small>Password</small>
               </label>
-              <input name="password" type="password" required="required" />
+              <input name="password" type="password" required="required" onKeyPress={this.detectCapsLock} />
             </div>
+            {this.state.isCapsLockOn ? (<div className="warning">CAPS LOCK ON</div>) : ''}
             <div>
               <label id='forgotPass' onClick={this.forgotPass}>Forgot password?</label>
               <button type="submit">{this.props.displayName}</button>
             </div>
-            {this.props.error && this.props.error.response && <div> {this.props.error.response.data} </div>}
+            {this.props.error && this.props.error.response && <div className="error"> {this.props.error.response.data} </div>}
           </form>
         ) : (
 
@@ -61,7 +71,7 @@ class Signin extends React.Component {
                 <label id='cancel' onClick={this.cancel}>Cancel</label>
                 <button type="submit">submit</button>
               </div>
-              {/* {this.props.error && this.props.error.response && <div> {this.props.error.response.data} </div>} */}
+              {this.props.error && this.props.error.response && <div className="error"> {this.props.error.response.data} </div>}
             </form>
           )}
 

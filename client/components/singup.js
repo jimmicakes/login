@@ -29,7 +29,7 @@ const Register = props => {
                     <label htmlFor="password">
                         <small>Password</small>
                     </label>
-                    <input name="password" type="password" required="required" />
+                    <input name="password" type="password" pattern=".{3,}" required title="3 characters minimum" />
                 </div>
                 <div>
                     <button type="submit">{displayName}</button>

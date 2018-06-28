@@ -23,14 +23,14 @@ nav a {
 }
 
 form {
-  margin-left: 40%;
+  display: inline-block;
 }
 
 form  div {
   margin: 1em;
   display: block;
   text-align: right;
-  width: 300px;
+  /* width: 300px; */
 }
 
 
@@ -78,3 +78,12 @@ main {
   color: red;
   cursor: pointer;
 } 
+
+.warning {
+  color: red;
+  display: inherit;
+}
+
+.error {
+  color: red;
+}

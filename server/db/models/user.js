@@ -15,6 +15,12 @@ const User = db.define('user', {
   },
   password: {
     type: Sequelize.STRING,
+    validate: {
+      len: {
+        args: [3, 100],
+        msg: 'password should at least have 3 characters'
+      }
+    },
     get() {
       return () => this.getDataValue('password')
     }
