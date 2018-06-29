@@ -8,7 +8,7 @@ import { auth } from '../store'
  */
 class Signin extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       forgotPass: false,
       isCapsLockOn: false
@@ -57,6 +57,7 @@ class Signin extends React.Component {
               <button type="submit">{this.props.displayName}</button>
             </div>
             {this.props.error && this.props.error.response && <div className="error"> {this.props.error.response.data} </div>}
+            <strong><a href='/signup'>Sign Up</a></strong>
           </form>
         ) : (
 
@@ -71,10 +72,14 @@ class Signin extends React.Component {
                 <label id='cancel' onClick={this.cancel}>Cancel</label>
                 <button type="submit">submit</button>
               </div>
-              {this.props.error && this.props.error.response && <div className="error"> {this.props.error.response.data} </div>}
+              {this.props.error
+                && this.props.error.response
+                && <div className="error">
+                  {this.props.error.response.data}
+                </div>}
+              <strong><a href='/signup'>Sign Up</a></strong>
             </form>
           )}
-
       </main>
     )
   }

@@ -9,6 +9,7 @@ a {
 label {
   display: inline;
   margin-right: 40px;
+  margin-left: 30px;
 }
 
 
@@ -22,6 +23,18 @@ nav a {
   color: #efe6e6;
 }
 
+nav a:hover {
+  color: #18BC9C;
+}
+
+nav a:active {
+  color: #18BC9C;
+}
+
+nav a:focus {
+  color: #18BC9C;
+}
+
 form {
   display: inline-block;
 }
@@ -30,7 +43,6 @@ form  div {
   margin: 1em;
   display: block;
   text-align: right;
-  /* width: 300px; */
 }
 
 
@@ -86,4 +98,8 @@ main {
 
 .error {
   color: red;
+}
+
+.pass {
+  color:green;
 }
